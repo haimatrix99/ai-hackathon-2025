@@ -1,6 +1,5 @@
 import os
 
-import pandas as pd
 import requests
 from app.langgraph.prompt import SYSTEM_PROMPT_ADVISOR
 from dotenv import load_dotenv

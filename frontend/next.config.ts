@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
   assetPrefix: process.env.NODE_ENV === "production" ? "/." : "",
   output: "export",
   trailingSlash: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;

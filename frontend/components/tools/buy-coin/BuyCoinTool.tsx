@@ -43,7 +43,6 @@ export const useBuyCoinTool = makeAssistantToolUI<BuyCoinArgs, string>({
             onReject={handleReject}
           />
         )}
-        {resultObj.approve && <BuyCoinContinue {...args} />}
         {resultObj.approve === false && (
           <pre className="font-bold text-red-600">User rejected purchase</pre>
         )}
