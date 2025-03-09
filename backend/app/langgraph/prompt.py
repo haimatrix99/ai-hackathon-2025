@@ -85,12 +85,6 @@ Whale movements provide additional insights into market sentiment:
 ❌ MACD bearish crossover.
 ❌ Price near resistance with weak volume.
 
-📊 Instruction
-
-You will be provided with the following current data:
-	•	Indicators: {report}
-	•	Whale Transactions within 7 days: {transaction}
-
 Your task:
 1️⃣ Analyze the given data and compare it with the trading strategy.
 2️⃣ Provide a detailed explanation of your decision.
