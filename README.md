@@ -1,16 +1,11 @@
 # AI Hackathon 2025
 
-The code for Human in the Loop video can be found in this directory. It's setup as a monorepo-style project, with `frontend` and `backend` directories.
-The `frontend` directory contains a Next.js application which allows you to interact with agent via a chat interface.
-The backend contains a LangGraph agent which powers the core functionality of the stockbroker.
-
 ## Deployment
 
 Agent is publicly accessible through two interfaces:
 
 1. API:
-
-   > The Cloud API for the agent is publicly accessible at the following base URL: `https://ai-hackathon-2025.vercel.app/api`
+   > The Cloud API for the agent is publicly accessible at the following base URL: `https://ai-hackathon-2025.vercel.app`
 
 2. Web-based Chat Interface:
    > To go along with the API, we've also deployed this web-based chat interface for agent.
@@ -19,7 +14,7 @@ Agent is publicly accessible through two interfaces:
 
 ## Setup
 
-To setup the stockbroker, install dependencies from the root of the monorepo:
+To setup, install dependencies from the root of the monorepo:
 
 ```bash
 npm install

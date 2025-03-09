@@ -1,5 +1,6 @@
 import os
 
+import pandas as pd
 import requests
 from app.langgraph.prompt import SYSTEM_PROMPT_ADVISOR
 from dotenv import load_dotenv
@@ -197,11 +198,11 @@ def get_crypto_indicators(crypto_id="bitcoin", currency="usd"):
 @tool("give-advisor")
 async def give_advisor(crypto_name: str):
     """Give advisor"""
-    # report = get_crypto_indicators(crypto_id=crypto_name)
-    # transaction = track_whales(token=crypto_name)
+    report = get_crypto_indicators(crypto_id=crypto_name)
+    transaction = track_whales(token=crypto_name)
     prompt = ChatPromptTemplate.from_template(template=SYSTEM_PROMPT_ADVISOR)
 
     model = ChatOpenAI(model="gpt-4o-mini", streaming=True)
     chain = prompt | model | StrOutputParser()
-    response = await chain.ainvoke()
+    response = await chain.ainvoke({"report": report, "transaction": transaction})
     return response
