@@ -2,6 +2,7 @@ from datetime import datetime
 from typing import Literal
 
 import httpx
+import pandas as pd
 from langchain_core.tools import ToolException, tool
 from pydantic import BaseModel, Field
 
@@ -16,7 +17,16 @@ class CryptoName(BaseModel):
 
 
 def process_data(data):
-    # Process the data directly using list comprehension
+    # Convert the data to a pandas DataFrame
+    df = pd.DataFrame(data, columns=["timestamp", "price"])
+
+    # Convert millisecond timestamps to datetime objects
+    df["datetime"] = pd.to_datetime(df["timestamp"], unit="ms")
+
+    # Format as a readable string (optional)
+    df["formatted_date"] = df["datetime"].dt.strftime("%Y-%m-%d %H:%M:%S")
+
+    # You can also create a dictionary of timestamp and price pairs
     result = [
         {
             "datetime": datetime.fromtimestamp(row[0] / 1000).strftime(
