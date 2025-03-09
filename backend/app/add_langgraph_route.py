@@ -166,10 +166,10 @@ def add_langgraph_route(app: FastAPI, graph, path: str):
                 },
                 stream_mode="messages",
             ):
-                # if isinstance(msg, ToolMessage):
-                #     tool_controller = tool_calls.get(msg.tool_call_id)
-                #     if tool_controller:
-                #         tool_controller.set_result(msg.content)
+                if isinstance(msg, ToolMessage):
+                    tool_controller = tool_calls.get(msg.tool_call_id)
+                    if tool_controller:
+                        tool_controller.set_result(msg.content)
 
                 if isinstance(msg, AIMessageChunk) or isinstance(msg, AIMessage):
                     if msg.content:

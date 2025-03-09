@@ -1,5 +1,6 @@
 import os
 
+import pandas as pd
 import requests
 from app.langgraph.prompt import SYSTEM_PROMPT_ADVISOR
 from dotenv import load_dotenv
@@ -143,7 +144,8 @@ def get_crypto_indicators(crypto_id="bitcoin", currency="usd"):
     if "prices" not in historical or "total_volumes" not in historical:
         return {"error": "Failed to fetch historical data"}
 
-    # Convert historical data into a Pandas DataFrame
+    # Convert historical data into a
+    # DataFrame
     prices = [x[1] for x in historical["prices"]]
     volumes = [x[1] for x in historical["total_volumes"]]
     df = pd.DataFrame({"Close": prices, "Volume": volumes})

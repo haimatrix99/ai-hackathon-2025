@@ -1,2 +1,0 @@
-[phases.setup]
-aptPkgs = ["libopenblas-dev"]   # Install the wget package with apt-get
