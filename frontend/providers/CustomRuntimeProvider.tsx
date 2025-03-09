@@ -15,7 +15,7 @@ export function CustomRuntimeProvider({
   children: ReactNode;
 }>) {
   const runtime = useEdgeRuntime({
-    api: `/api/chat`,
+    api: `${process.env.NEXT_PUBLIC_API_URL}/api/chat`,
     unstable_AISDKInterop: true,
     adapters: {
       attachments: new CompositeAttachmentAdapter([
