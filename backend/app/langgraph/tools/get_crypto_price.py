@@ -13,6 +13,7 @@ async def get_crypto_price(crypto_name: str = "bitcoin"):
     url = f"https://api.coingecko.com/api/v3/simple/price?ids={crypto_name.lower()}&vs_currencies=usd"
     async with httpx.AsyncClient(timeout=httpx.Timeout(timeout=10)) as client:
         response = await client.get(url)
+        print(response.json())
         if response.status_code == 200:
             data = response.json()
             price = data[crypto_name.lower()]["usd"]
